@@ -50,6 +50,7 @@ export async function GET() {
         precioUSD:  Number(r["Precio USD"]) || 0,
         valoracion: String(r["Valoración"] ?? ""),
         tamano:     String(r["Tamaño"] ?? ""),
+        imagen:     r["Imagen"] ? String(r["Imagen"]) : null,
       }));
 
     // --- Leads ---

@@ -13,6 +13,7 @@ interface Juego {
   precioUSD: number;
   valoracion: string;
   tamano: string;
+  imagen: string | null;
 }
 
 function valoracionColor(v: string): string {
@@ -146,7 +147,7 @@ export function ProductosView() {
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                 <thead>
                   <tr style={{ borderBottom: `1px solid ${BORD}` }}>
-                    {["ID", "Juego", "Categoría", "Tamaño", "Valoración", "Precio USD"].map(h => (
+                    {["", "ID", "Juego", "Categoría", "Tamaño", "Valoración", "Precio USD"].map(h => (
                       <th key={h} style={{ padding: "10px 14px", textAlign: "left", fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: ".5px", fontWeight: 600, whiteSpace: "nowrap" }}>{h}</th>
                     ))}
                   </tr>
@@ -158,6 +159,22 @@ export function ProductosView() {
                       <tr key={i} style={{ borderBottom: `1px solid ${BORD}` }}
                         onMouseEnter={e => (e.currentTarget.style.background = "rgba(255,255,255,.02)")}
                         onMouseLeave={e => (e.currentTarget.style.background = "transparent")}>
+                        <td style={{ padding: "8px 14px", width: 60 }}>
+                          {j.imagen ? (
+                            <a href={j.imagen} target="_blank" rel="noopener noreferrer">
+                              <img
+                                src={j.imagen}
+                                alt={j.producto}
+                                style={{ width: 52, height: 52, objectFit: "cover", borderRadius: 8, border: `1px solid ${BORD}`, display: "block", cursor: "pointer" }}
+                                onError={e => { (e.target as HTMLImageElement).style.display = "none"; }}
+                              />
+                            </a>
+                          ) : (
+                            <div style={{ width: 52, height: 52, borderRadius: 8, border: `1px solid ${BORD}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, background: "#ffffff08" }}>
+                              🎮
+                            </div>
+                          )}
+                        </td>
                         <td style={{ padding: "10px 14px", fontFamily: "monospace", fontSize: 11, color: MUTED }}>{j.id}</td>
                         <td style={{ padding: "10px 14px", fontWeight: 600, color: TEXT, maxWidth: 220 }}>
                           {j.producto}
