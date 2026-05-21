@@ -68,7 +68,7 @@ export function ChatbotView() {
   useEffect(() => {
     fetch("/api/settings/webhook")
       .then(r => r.json())
-      .then((d: Record<string, string>) => { if (d.url) setWebhookUrl(d.url); })
+      .then((d: Record<string, string>) => { const u = d.url || d.vendedora || d.inventario; if (u) setWebhookUrl(u); })
       .catch(() => {});
   }, []);
 
