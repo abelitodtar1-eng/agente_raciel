@@ -120,35 +120,12 @@ export function WebhookView() {
       </div>
 
       <div style={{ padding: "24px", maxWidth: 640 }}>
-        <div style={{ background: "rgba(108,99,255,.06)", border: `1px solid rgba(108,99,255,.2)`, borderRadius: 8, padding: "10px 14px", marginBottom: 20, fontSize: 11, color: MUTED, lineHeight: 1.7 }}>
-          <strong style={{ color: TEXT }}>¿Cómo funciona el enrutamiento?</strong><br />
-          Inventario → mensajes sobre stock, productos, entradas/salidas, kardex.<br />
-          Contabilidad → mensajes sobre cobros, pagos, saldos, facturas, finanzas.<br />
-          Vendedora → mensajes sobre ventas, clientes, cotizaciones, precios y ofertas.
-        </div>
-
-        <WebhookField
-          field="inventario"
-          icon="🏭"
-          label="Webhook Inventario"
-          description="Workflow n8n para consultas de stock, productos, entradas/salidas y pedidos."
-          placeholder="https://tu-n8n.host/webhook/inventario-id"
-        />
-
-        <WebhookField
-          field="contabilidad"
-          icon="📊"
-          label="Webhook Contabilidad"
-          description="Workflow n8n para cobros, pagos, saldos y estado financiero."
-          placeholder="https://tu-n8n.host/webhook/contabilidad-id"
-        />
-
         <WebhookField
           field="vendedora"
-          icon="🛍️"
-          label="Webhook Vendedora"
-          description="Workflow n8n para ventas, clientes nuevos, cotizaciones y ofertas."
-          placeholder="https://tu-n8n.host/webhook/vendedora-id"
+          icon="🤖"
+          label="Webhook Lucy"
+          description="Workflow n8n principal — todos los mensajes se envían aquí."
+          placeholder="https://tu-n8n.host/webhook/lucy-id"
         />
 
       </div>
